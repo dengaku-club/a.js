@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { changeColor, changeWidth } from '../actions/';
 import Main from '../components/Palette';
 
-class Palette extends Component {
+export class Palette extends Component {
   render() {
     return <Main actions={this.props.actions} palette={this.props.palette} />;
   }
@@ -19,11 +19,11 @@ Palette.propTypes = {
   palette: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return { palette: state.palette };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   const actions = { changeColor, changeWidth };
   return { actions: bindActionCreators(actions, dispatch) };
 }
