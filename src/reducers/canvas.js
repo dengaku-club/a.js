@@ -79,7 +79,7 @@ function reducer(state = initialState, action) {
       break;
     }
     case UPDATE_THUMBNAIL: {
-      nextState.frames[action.index].updateThumbnail(action.thumbnail);
+      getFrameById(nextState.frames, action.originalId).updateThumbnail(action.thumbnail);
       break;
     }
     case MOVE_FRAME: {
