@@ -33,7 +33,7 @@ class FrameItem extends React.Component {
   }
   drop = event => {
     event.preventDefault();
-    this.props.onMove(event.dataTransfer.getData('index'), this.props.index);
+    this.props.onMove(parseInt(event.dataTransfer.getData('index')), this.props.index);
   }
   change = () => {
     this.props.onChange(this.props.index);
