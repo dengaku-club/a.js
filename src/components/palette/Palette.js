@@ -1,9 +1,9 @@
 import React from 'react';
+import UndoButton from '@components/palette/UndoButton';
+import ClearCanvasButton from '@components/palette/ClearCanvasButton';
+import SubmitButton from '@components/palette/SubmitButton';
 import LineWidth from '@components/palette/LineWidth';
 import Pen from '@components/palette/Pen';
-import PlayButton from '@components/palette/PlayButton';
-import EditingContainer from '@components/palette/EditingContainer';
-import PlayingContainer from '@components/palette/PlayingContainer';
 import styles from '@components/palette/palette.cssmodule.styl';
 import colors from '@utils/colors';
 import allInOne from '@utils/allInOne';
@@ -20,11 +20,9 @@ class Palette extends React.Component {
           )
         }
         <LineWidth />
-        <PlayButton />
-        <div styleName="container-base">
-          <EditingContainer />
-          <PlayingContainer />
-        </div>
+        <UndoButton />
+        <ClearCanvasButton />
+        <SubmitButton />
       </div>
     );
   }

@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import App from '@components/App';
 import configureStore from '@stores';
 
-import 'font-awesome/css/font-awesome.css';
-
 const store = configureStore();
 
 ReactDOM.render(

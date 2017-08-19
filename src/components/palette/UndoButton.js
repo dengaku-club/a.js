@@ -16,7 +16,7 @@ class UndoButton extends React.Component {
   render() {
     return (
       <PaletteButton
-        icon="fa-undo"
+        caption="undo"
         disabled={this.isDisabled()}
         onClick={this.props.actions.undo} />
     );
