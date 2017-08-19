@@ -22,7 +22,6 @@ import updateDuration from '@actions/updateDuration.js';
 import requestUpdateThumbnail from '@actions/requestUpdateThumbnail.js';
 import changeSize from '@actions/changeSize.js';
 import updateEasing from '@actions/updateEasing.js';
-import updateAnimation from '@actions/updateAnimation.js';
 
 const actions = {
   addLine,
@@ -40,7 +39,6 @@ const actions = {
   updateDuration,
   requestUpdateThumbnail,
   changeSize,
-  updateEasing,
-  updateAnimation
+  updateEasing
 };
 module.exports = actions;

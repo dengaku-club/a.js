@@ -8,9 +8,7 @@ import config from '@config';
 const props = {
   'canvas.currentId': PropTypes.number.isRequired,
   'canvas.frames': PropTypes.array.isRequired,
-  'player.isPlaying': PropTypes.bool.isRequired,
-  'canvas.width': PropTypes.number.isRequired,
-  'canvas.height': PropTypes.number.isRequired
+  'player.isPlaying': PropTypes.bool.isRequired
 };
 const actions = ['changeCurrentFrame', 'removeFrame', 'moveFrame'];
 
@@ -26,7 +24,7 @@ class FrameItem extends React.Component {
     return thumbnail ? `url(${thumbnail})` : 'none';
   }
   styles() {
-    const classes = ['container'];
+    const classes = ['frame-item'];
     if (this.props.currentId === this.props.id) {
       classes.push('active');
     }
@@ -35,7 +33,7 @@ class FrameItem extends React.Component {
   css() {
     return {
       backgroundImage: this.getBackgroundImage(),
-      width: `calc(9vh * ${this.props.width / this.props.height})`
+      width: `${config.thumbnailWidth}px`
     };
   }
   dragStart = event => {
@@ -60,17 +58,15 @@ class FrameItem extends React.Component {
   }
   render() {
     return (
-      <div styleName={this.styles()}>
-        <div
-          styleName="thumbnail"
-          onClick={this.change}
-          style={this.css()}
-          draggable="true"
-          onDragStart={this.dragStart}
-          onDragOver={this.allowDrop}
-          onDrop={this.drop}>
-          <button styleName="remove-button" onClick={this.remove}>×</button>
-        </div>
+      <div
+        styleName={this.styles()}
+        onClick={this.change}
+        style={this.css()}
+        draggable="true"
+        onDragStart={this.dragStart}
+        onDragOver={this.allowDrop}
+        onDrop={this.drop}>
+        <button styleName="remove-button" onClick={this.remove}>×</button>
       </div>
     );
   }

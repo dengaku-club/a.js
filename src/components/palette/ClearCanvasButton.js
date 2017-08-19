@@ -19,7 +19,7 @@ class ClearCanvasButton extends Component {
   render() {
     return (
       <PaletteButton
-        icon="fa-eraser"
+        caption="clear-canvas"
         disabled={this.isDisabled()}
         onClick={this.props.actions.clearCanvas} />
     );

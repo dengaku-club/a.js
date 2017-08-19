@@ -1,12 +1,11 @@
 import React from 'react';
 import BezierEasingEditor from 'bezier-easing-editor';
-import PaletteButton from '@components/palette/PaletteButton';
-import styles from '@components/palette/easingbutton.cssmodule.styl';
+import styles from '@components/frames/easing.cssmodule.styl';
 import allInOne from '@utils/allInOne';
 
 const actions = ['updateEasing'];
 
-class EasingButton extends React.Component {
+class Easing extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isShow: false };
@@ -24,21 +23,15 @@ class EasingButton extends React.Component {
   }
   render() {
     return (
-      <div styleName="easing-parent">
-        <PaletteButton
-          icon="fa-area-chart"
-          onClick={this.toggle} />
+      <div styleName="easing">
+        <button styleName="easing-button" onClick={this.toggle}>E</button>
         <BezierEasingEditor
           onFinish={this.change}
           styleName="easing-editor"
-          background="#212121"
-          gridColor="#616161"
-          handleColor="#1de9b6"
-          curveColor="#64ffda"
           style={this.getStyle()} />
       </div>
     );
   }
 }
 
-export default allInOne(EasingButton, styles, {}, actions);
+export default allInOne(Easing, styles, {}, actions);

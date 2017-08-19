@@ -1,41 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '@components/frames/currenttiming.cssmodule.styl';
+import config from '@config';
 import allInOne from '@utils/allInOne';
 
 const props = {
   'player.isPlaying': PropTypes.bool.isRequired,
   'player.duration': PropTypes.number.isRequired,
-  'player.animation': PropTypes.object,
   'canvas.frames': PropTypes.array.isRequired
 };
 
 class CurrentTiming extends React.Component {
-  constructor(componentProps) {
-    super(componentProps);
-    this.state = { timing: 0 };
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.isPlaying && !prevProps.isPlaying) {
-      this.tick();
-    }
-  }
   getLeft() {
-    return `${this.state.timing * 100}%`;
+    return `${this.props.timing * config.thumbnailWidth * this.props.frames.length}px`;
   }
   getStyle() {
     return {
-      left: this.getLeft(),
-      display: this.props.isPlaying ? 'block' : 'none'
+      left: this.getLeft()
     };
-  }
-  tick = () => {
-    if (this.props.isPlaying) {
-      requestAnimationFrame(this.tick);
-    }
-    if (this.props.animation) {
-      this.setState({ timing: this.props.animation.effect.getComputedTiming().progress });
-    }
   }
   render() {
     return (
@@ -43,5 +25,9 @@ class CurrentTiming extends React.Component {
     );
   }
 }
+
+CurrentTiming.propTypes = {
+  timing: PropTypes.number
+};
 
 export default allInOne(CurrentTiming, styles, props);
