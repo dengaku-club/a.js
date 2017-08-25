@@ -72,6 +72,7 @@
   "dependencies": {
     "bezier-easing-editor": "shundroid/bezier-easing-editor",
     "cross-env": "^3.1.0",
+    "es6-promise": "^4.1.1",
     "font-awesome": "^4.7.0",
     "prop-types": "^15.5.10",
     "react": "^15.0.1",

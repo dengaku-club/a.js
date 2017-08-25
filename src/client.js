@@ -6,6 +6,7 @@ import App from '@components/App';
 import configureStore from '@stores';
 
 import 'font-awesome/css/font-awesome.css';
+import 'es6-promise/auto';
 
 if (!document.body.animate) {
   const script = document.createElement('script');
